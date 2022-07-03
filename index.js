@@ -61,7 +61,7 @@ app.post('/api/shorturl', (req, res) => {
   })
 })
 
-app.get('/:id', (req, res)=>{
+app.get('/api/shorturl/:id', (req, res)=>{
   const id = req.params.id
   let url_to_check = based_url+id
   URLModel.findOne({short_url : id}, (err, data)=>{
