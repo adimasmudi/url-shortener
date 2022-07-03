@@ -21,7 +21,7 @@ let urlSchema = new mongoose.Schema({
 })
 
 let URLModel = mongoose.model('URLModel',urlSchema)
-const based_url = 'localhost:3000'
+const based_url = 'https://masmudi-url-shortener.herokuapp.com/'
 
 // Basic Configuration
 const port = process.env.PORT || 3000;
@@ -63,7 +63,8 @@ app.post('/api/shorturl', (req, res) => {
 
 app.get('/:id', (req, res)=>{
   const id = req.params.id
-  dns.lookup(based_url+'/'+id.hostname, (err, address)=>{
+  let url_to_check = based_url+id
+  dns.lookup(url_to_check.hostname, (err, address)=>{
     if(!address){
       res.json({error : "Invalid URL"})
     }else{
