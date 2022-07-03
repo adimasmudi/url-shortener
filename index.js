@@ -64,14 +64,9 @@ app.post('/api/shorturl', (req, res) => {
 app.get('/:id', (req, res)=>{
   const id = req.params.id
   let url_to_check = based_url+id
-  dns.lookup(url_to_check.hostname, (err, address)=>{
-    if(!address){
-      res.json({error : "Invalid URL"})
-    }else{
-      URLModel.findOne({short_url : id}, (err, data)=>{
-        res.redirect(301, data.original_url)
-      })
-    }
+  URLModel.findOne({short_url : id}, (err, data)=>{
+    if(err) return console.log(err)
+    res.redirect(301, data.original_url)
   })
 })
 
