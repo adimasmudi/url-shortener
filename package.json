@@ -8,10 +8,14 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.4.2",
+    "url": "^0.11.0",
+    "url-parse": "^1.5.10"
   },
   "license": "MIT",
   "devDependencies": {
